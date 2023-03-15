@@ -4,21 +4,26 @@ import {StyleSheet, Text, TouchableOpacity, FlatList, View} from 'react-native';
 import axios, {AxiosResponse} from 'axios';
 import {Users} from '../model/users';
 import AppCard from '../components/app_card';
+import {useNavigation} from '@react-navigation/native';
 
 function UserList(props: any) {
-  console.log('Response this is test response');
+  console.log(props['type']);
+  const navigation = useNavigation();
   const [userData, setUserData] = useState<Users[]>([]);
+
   useEffect(() => {
+    if (props['type'] == 'InActive') {
+      setUserData([]);
+      return;
+    }
     axios
       .get<Users[]>('https://jsonplaceholder.typicode.com/users')
       .then((response: AxiosResponse) => {
-        console.log('Response:', response.data);
         setUserData(response.data);
       });
-  }, []);
+  }, [props['type']]);
   const goToDetails = (user: Users) => {
-    console.log('To Details Page', user);
-    props.navigation.navigate('Details', user);
+    navigation.navigate('Details', user);
   };
   return (
     <View style={styles.sectionContainer}>
@@ -32,6 +37,7 @@ function UserList(props: any) {
             <AppCard>
               <View style={styles.itemStyle}>
                 <Text style={styles.title}>{item.name}</Text>
+                <Text>{item.address.city}</Text>
               </View>
             </AppCard>
           </TouchableOpacity>
@@ -41,7 +47,7 @@ function UserList(props: any) {
 }
 const styles = StyleSheet.create({
   sectionContainer: {
-    paddingTop: 32,
+    
     paddingHorizontal: 20,
     backgroundColor: '#F0F0F0',
   },

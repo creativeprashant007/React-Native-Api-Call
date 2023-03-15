@@ -4,6 +4,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 import {NavigationContainer} from '@react-navigation/native';
 import UserList from '../screens/UserList';
 import UserDetails from '../screens/UserDetails';
+import Home from '../screens/Home';
 
 const Stack = createStackNavigator();
 
@@ -20,9 +21,16 @@ const AppNavigator = () => {
           }}>
           <Stack.Screen
             name="Home"
-            component={UserList}
+            component={Home}
             options={{
               title: 'Home',
+            }}
+          />
+          <Stack.Screen
+            name="Users"
+            component={UserList}
+            options={{
+              title: 'Users',
             }}
           />
           <Stack.Screen
