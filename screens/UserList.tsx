@@ -23,7 +23,7 @@ function UserList(props: any) {
       });
   }, [props['type']]);
   const goToDetails = (user: Users) => {
-    navigation.navigate('Details', user);
+    navigation.navigate('Details' as never, user as never);
   };
   return (
     <View style={styles.sectionContainer}>

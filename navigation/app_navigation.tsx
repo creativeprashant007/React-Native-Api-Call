@@ -5,6 +5,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import UserList from '../screens/UserList';
 import UserDetails from '../screens/UserDetails';
 import Home from '../screens/Home';
+import Dashboard from '../screens/Dashboard';
 
 const Stack = createStackNavigator();
 
@@ -20,10 +21,10 @@ const AppNavigator = () => {
             headerTintColor: 'white',
           }}>
           <Stack.Screen
-            name="Home"
-            component={Home}
+            name="Dashboard"
+            component={Dashboard}
             options={{
-              title: 'Home',
+              title: 'Dashboard',
             }}
           />
           <Stack.Screen
