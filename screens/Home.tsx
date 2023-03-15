@@ -41,11 +41,11 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingHorizontal: 10,
-    justifyContent: 'center',
+    
   },
   listTab: {
     marginBottom: 20,
-    marginTop: 70,
+    marginTop: 10,
     flexDirection: 'row',
   },
   btnTab: {

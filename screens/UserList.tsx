@@ -47,7 +47,7 @@ function UserList(props: any) {
 }
 const styles = StyleSheet.create({
   sectionContainer: {
-    paddingTop: 32,
+    
     paddingHorizontal: 20,
     backgroundColor: '#F0F0F0',
   },
